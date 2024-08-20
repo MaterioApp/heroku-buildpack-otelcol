@@ -4,7 +4,7 @@ This [Heroku buildpack][1] installs OpenTelemetry Collector in your Heroku dyno 
 
 ## Configuration
 
-This buildpack assumes that otel collector config file is located at `/otelcol/config.yml` in your application.
+This buildpack assumes that otel collector config file is located at `/otelcol/config.yaml` in your application.
 
 By default, this buildpack installs [OpenTelemetry Collector Core][2], to install [OpenTelemetry Collector Contrib][3], set `OTELCOL_CONTRIB` to `true` in your enviroment variables.
 
@@ -22,7 +22,7 @@ fi
 
 # Update configuration placeholder using the Heroku application environment variable
 if [ -n "$RUNTIME_URL" ]; then
-  sed -i "s/<URL>/$RUNTIME_URL/" "$APP_OTELCOL/config.yml"
+  sed -i "s/<URL>/$RUNTIME_URL/" "$APP_OTELCOL/config.yaml"
 fi
 ```
 
