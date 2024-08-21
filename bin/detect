@@ -1,20 +1,4 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-# Fail fast
-set -e
-set -o pipefail
-
-# Debug
-set -x
-
-# Parse params
-BUILD_DIR=$1
-
-# This buildpack is valid for apps with an otelcol/config.yaml file
-if [ -f "$BUILD_DIR"/otelcol/config.yaml ]; then
-  echo "OpenTelemetry Collector"
-  exit 0
-else
-  exit 1
-fi
+echo "OpenTelemetry Collector" && exit 0
