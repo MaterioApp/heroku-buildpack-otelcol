@@ -15,5 +15,5 @@ if [ -n "$DISABLE_OTELCOL" ]; then
 elif [ ! -f "$OTEL_CONFIG_FILE" ]; then
   echo "OpenTelemetry Collector config file $OTEL_CONFIG_FILE is missing. OpenTelemetry Collector agent is disabled."
 else
-  bash -c "otelcol --config $OTEL_CONFIG_FILE 2>&1 &"
+  bash -c "GOMEMLIMIT=150MiB otelcol --config $OTEL_CONFIG_FILE 2>&1 &"
 fi
